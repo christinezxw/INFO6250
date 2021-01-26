@@ -25,6 +25,7 @@ From this directory, at the command line:
   * Fix any errors that do turn up and repeat this step until everything runs smoothly
 1. Add the file to the list of files to commit: `git add list.js`
 1. Run `git status` and make sure nothing is listed as an 'Untracked file' and only `list.js` is listed to be added.
+  * Note: You may see `package-lock.json` listed.  We'll discuss this file later, for now just delete it.
   * I have never heard *anyone* say "I run git status too much".  It is much easier to clean up a commit BEFORE you make it, so always run git status before doing a commit.  Always pay attention to the output of git status.  Multiple students forget this step each semester.
   * If you have git troubles, I recommend consulting the list of common solutions at https://ohshitgit.com
 1. Commit the file: `git commit -m "Adds MYNAME"` (Example: `git commit -m"Adds Lex"`

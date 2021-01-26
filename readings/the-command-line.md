@@ -147,10 +147,10 @@ There are long lists of programs and commands available, but here are some usefu
 * https://stackoverflow.com/questions/38428561/difference-between-forward-slash-and-backslash-in-file-path
 
 #### Mac
-* TODO
+* https://wizardzines.com/zines/bite-size-command-line/  (Note: Not free)
 
 #### Linux
-* TODO
+* https://wizardzines.com/zines/bite-size-command-line/  (Note: Not free)
 
 ### Self Quiz
 * Imagine when you start your terminal, you begin in your home directory, `/home/student`.  What directory are you in after the following commands?  What would the directory tree look like after these commands? (assume no permission problems)
