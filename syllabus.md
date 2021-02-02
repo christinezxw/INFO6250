@@ -42,6 +42,8 @@ This course covers Web Development, focusing on both the fundamentals and from t
 Mon Jan 25,
 Mon Feb 1,
 Mon Feb 8,
+NOT Mon Feb 15 (Holiday),
+Mon Feb 22
 
  - HTTP, servers/webservers, browsers, clients, URL/URI, HTTP as stateless, request/response, headers/body
  - The role of HTML, CSS, and JS
@@ -61,11 +63,10 @@ Mon Feb 8,
 At the end of Section 1 you should be able to write a simple multiple page web application using NodeJS that serves semantic HTML and styles with CSS.  You will receive from github repository updates and submit your work via Pull Requests (PRs) in the same fashion that many employers conduct their work.
 
 ### Section 2: The Recent Web
-NOT Mon Feb 15 (Holiday),
-Mon Feb 22,
 Mon Mar 1,
 Mon Mar 8,
 Mon Mar 15,
+Mon Mar 22
 
  - the DOM, cookies, localStorage, indexedDB
  - application state, state in model vs state in DOM
@@ -77,7 +78,6 @@ Mon Mar 15,
 At the end of Section 2 you should be able to write a simple single page web application (SPA) calling RESTful, external services, and use NodeJS to provide those service endpoints
 
 ### Section 3: The Modern Web Industry
-Mon Mar 22,
 Mon Mar 29,
 Mon Apr 5,
 Mon Apr 12,
