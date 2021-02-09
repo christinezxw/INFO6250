@@ -1,0 +1,29 @@
+#details {
+    font-family: sans-serif;
+}
+
+.forms {
+    display: flex;
+}
+
+.favoriteform {
+    flex: 1;
+    border: 1px dotted black;
+    padding: 5px 10px 5px;
+    margin: 3px 3px 3px;
+}
+
+.favoriteform form {
+    display: flex;
+    flex-direction: column;
+}
+
+.error {
+    color: red;
+    font-style: italic;
+    text-align: center;
+}
+
+.errormessage {
+    text-decoration: underline;
+}

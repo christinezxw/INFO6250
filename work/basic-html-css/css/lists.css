@@ -1,0 +1,31 @@
+#greatlist {
+    color: rgb(35, 109, 236);
+    font-family: sans-serif;
+    }
+
+.list {
+    list-style-type: none;
+    border: 1px solid black;
+    padding-inline-start: 0px;
+}
+
+.list li {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.list li:nth-child(odd) {
+    background-color: blanchedalmond;
+}
+
+.list li:nth-child(even) {
+    background-color: rgb(245, 207, 150);
+}
+
+.student {
+    padding-left: 5px;
+}
+
+.cat {
+    padding-left: 5px;
+}
