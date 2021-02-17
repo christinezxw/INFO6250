@@ -1,0 +1,46 @@
+#chat-app {
+    border: 1px solid black;
+    font-family: sans-serif;
+}
+
+.users {
+    background-color: thistle;
+    margin: 0px 0px 0px;
+    padding: 5px 0px 5px 30px;
+}
+
+.messages {
+    background-color:rgb(215, 175, 215);
+    max-height: 200px;
+    overflow-y: scroll;
+    margin: 0px 0px 0px;
+    padding: 5px 0px 5px 30px;
+}
+
+.sender {
+    font-weight: bold;
+}
+
+.outgoing {
+    background-color: cadetblue;
+    padding: 3px 3px 3px;
+    border-radius:10px;
+}
+
+.outgoing form {
+    margin: 3px;
+}
+
+.outgoing input {
+    width: 80%;
+    outline-style: none;
+    border: 0px;
+    border-radius: 3px;
+}
+
+.outgoing button {
+    width: 15%;
+    outline-style: none;
+    border: 0px;
+    border-radius: 3px;
+}
