@@ -15,7 +15,12 @@ const messages = [
 ];
 
 function addMessage({ sender, text }) {
-  // Fill in!
+  messages.push(
+    {
+      sender: sender,
+      text: text
+    }
+  )
 }
 
 const chat = {
