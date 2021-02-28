@@ -1,0 +1,17 @@
+{
+  "name": "exam01",
+  "version": "1.0.0",
+  "description": "* Start from the up-to-date main branch (`git checkout main; git pull origin main`) * Create a feature branch named 'exam1' (`git checkout -b exam1`) * Modify the `questions.md` file to have the answers required * Add a `server.js`, a `words.js`, and any other files necessary to create the multiple page web application below * Add, commit, and push the branch to github * Create a PR to merge to main * Be sure to include the reviewer(s).   * Due by 11:59pm (PT) Sun Feb 28",
+  "main": "game-web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "uuid": "^8.3.2"
+  }
+}
