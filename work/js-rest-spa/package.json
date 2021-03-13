@@ -1,0 +1,15 @@
+{
+  "name": "js-rest-spa",
+  "version": "1.0.0",
+  "description": "* start from the up-to-date main branch (`git checkout main; git pull origin main`) * Create a feature branch named 'js-rest-spa' (`git checkout -b js-rest-spa`) * modify the files in this directory to have the require features * add, commit, and push the branch to github * Create a PR to merge to main * Be sure to include the TA(s) and I as reviewers.   * Due by 11:59pm (PT) Sun Mar 14",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "uuid": "^8.3.2"
+  }
+}
