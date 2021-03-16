@@ -72,20 +72,20 @@ Mon Mar 22
  - application state, state in model vs state in DOM
  - asynchronous events (async), Promises, XHR/fetch/AJAX, HTTP verbs (methods), REST, services/endpoints
  - polyfills, minifiers, linters, bundlers, transpilers, CSS preprocessors, builds
- - Progressive Enhancement
- - Application state management, CRUD
+ - Single Page Applications (SPA), Progressive Enhancement, Application state management, CRUD
+ - Same Origin Policy(SOP), CORS
 
 At the end of Section 2 you should be able to write a simple single page web application (SPA) calling RESTful, external services, and use NodeJS to provide those service endpoints
 
 ### Section 3: The Modern Web Industry
 Mon Mar 29,
 Mon Apr 5,
-Mon Apr 12,
+NOT Mon Apr 12 (Holiday),
 Mon Apr 19
 
  - Frontend frameworks/libraries, React, virtual DOM, JSX, Single Page Applications (SPA)
  - props vs state, Pure components vs stateful components
- - Same Origin Policy(SOP), CORS, XSRF/CSRF, CSP, OWASP
+ - XSRF/CSRF, CSP, OWASP
  - as-a-service (PaaS, FaaS)
  - Agile, change management, Software Patterns
  - Mockups, wireframes, prototypes
