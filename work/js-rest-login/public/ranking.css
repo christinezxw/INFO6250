@@ -1,0 +1,86 @@
+body { 
+    font-family: sans-serif;
+}
+
+#ranking-app .login.hidden { 
+    display: none;
+}
+#ranking-app .logged-in.hidden { 
+    display: none;
+}
+
+.rankings {
+    list-style-type: square;
+    background-color: #F64C72;
+    color: white;
+    margin: 0px 0px 0px;
+    padding-left: 20px;
+}
+
+.ranking:hover * { 
+    background-color:#ff9fb4; 
+    color: black;
+}
+
+.ranking-container {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 5px 5px;
+}
+
+.ranking-name {
+    flex-grow: 7;
+}
+
+.score {
+    flex-grow: 2;
+    display: flex;
+    justify-content: space-around;
+}
+
+.star:hover {
+    cursor: pointer;
+}
+
+.delete {
+    border: 1px solid white;
+}
+
+.ranking button:hover {
+    background-color: #F64C72;
+}
+
+.ranking:hover .delete { 
+    border: 1px solid black;
+}
+
+.sorting{
+    background-color: #2F2FA2;
+    padding: 5px 5px 5px;
+    color: white;
+}
+
+.form {
+    background-color:  #ff9fb4;
+    padding: 5px 5px 5px;
+}
+
+.form * {
+    border: none;
+}
+
+.status {
+    background-color: #553D67;
+    padding: 5px 5px 5px;
+    color: white;
+}
+
+.logoutbutton{
+    width: 100%;
+    border: none;
+}
+
+.loginbutton{
+    width: 100%;
+    border: none;
+}

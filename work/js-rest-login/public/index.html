@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="ranking.css" />
+</head>
+
+<body>
+    <div id="ranking-app">
+        <div class="status loginstatus"></div>
+        <div class="login hidden">
+            <label>Username: <input type="text"></label><br>
+            <button type="button" class="loginbutton">Login</button>
+            <div class="login-status"></div>
+        </div>
+        <div class="logged-in hidden">
+            <button type="button" class="logoutbutton">Logout</button>
+            <div class="rankingscontainer">
+                <ul class="rankings"></ul>
+            </div>
+            <div class="sorting">
+                <span>Sort by score in order:</span><br>
+                <div class="radiocontainer">
+                    <input type="radio" class="sortradio" name="sorting" value="non" checked="checked">
+                    <label for="male">None</label><br>
+                </div>
+                <div class="radiocontainer">
+                    <input type="radio" class="sortradio" name="sorting" value="asc">
+                <label for="female">Ascending</label><br>
+                </div>
+                <div class="radiocontainer">
+                    <input type="radio" class="sortradio" name="sorting" value="des">
+                <label for="other">Descending</label>
+                </div>
+            </div>
+            <div class="form">
+                Add Item:
+                <input class="to-add">
+                <button class="add" type="button">Add</button>
+            </div>
+            <div class="status operationstatus"></div>
+        </div>
+    </div>
+    <script src="ranking.js"></script>
+</body>
+
+</html>
