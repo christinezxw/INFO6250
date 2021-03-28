@@ -1,0 +1,23 @@
+body {
+    font-family: sans-serif;
+}
+
+#recipe-app .login.hidden {
+    display: none;
+}
+
+#recipe-app .home.hidden {
+    display: none;
+}
+
+#recipe-app .details.hidden {
+    display: none;
+}
+
+#recipe-app .newrecipe.hidden {
+    display: none;
+}
+
+#recipe-app .hidden {
+    display: none;
+}

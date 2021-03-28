@@ -31,17 +31,21 @@ app.post('/recipe', express.json(), (req, res) => {
         return;
     } else if (!sessions.isValidSession(sid)) {
         res.status(403).json({ error: 'login-invalid' });
+        return;
     }
     const { title, ingredients, instruction } = req.body;
     if (!title) {
         res.status(400).json({ error: `title-missing` });
+        return;
     } else if (!ingredients) {
         res.status(400).json({ error: `ingredients-missing` });
+        return;
     } else if (!instruction) {
         res.status(400).json({ error: `instruction-missing` });
+        return;
     }
     const recipeId = sessions.addRecipe({ sid: sid, title: title, ingredients: ingredients, instruction: instruction });
-    res.redirect('/recipe?recipeId=' + recipeId);
+    res.status(200).json({ recipeId: recipeId });
 });
 
 app.get('/session', (req, res) => {
@@ -51,7 +55,8 @@ app.get('/session', (req, res) => {
         return;
     }
     if (sessions.isValidSession(sid)) {
-        res.status(200).json({});
+        const username = sessions.sessionData[sid].username;
+        res.status(200).json({ sid: sid, username: username });
         return;
     }
 
@@ -75,4 +80,4 @@ app.delete('/session', (req, res) => {
     res.status(200).json({});
 });
 
-app.listen(PORT, () => console.log(`http://localhost:${PORT}`)); 
+app.listen(PORT, () => console.log(`http://localhost:${PORT}`));

@@ -7,40 +7,47 @@
 
 <body>
     <div id="recipe-app">
+        <div class="status loginstatus"></div>
         <div class="login hidden">
-            <h2>Login</h2>
-            <label>Username: <input type="text"></label><br>
+            <h2 class="pagetitle">Login</h2>
+            <label>Username: <input type="text"></label>
             <button type="button" class="loginbutton">Login</button>
-            <div class="login-status"></div>
         </div>
         <div class="home hidden">
-            <h2>Home</h2>
-            <div class="status loginstatus"></div>
-            <div class="loginlogoutbuttoncontainer"></div>
+            <h2 class="pagetitle">Home</h2>
+            <button type="button" class="loginredirectbutton hidden">Login</button>
+            <button type="button" class="logoutbutton hidden">Logout</button>
             <div class="recipescontainer">
                 <ul class="recipes"></ul>
             </div>
-            <div class="newrecipebuttoncontainer"></div>
+            <button type="button" class="newrecipebutton hidden">Add New Recipe</button>
         </div>
         <div class="details hidden">
-            <h2>Details</h2>
+            <h2 class="pagetitle">Details</h2>
             <div class="recipedetailscontainer"></div>
-            <button type="button" class="tohomebutton">Return To Home</button>
         </div>
         <div class="newrecipe hidden">
-            <h2>New Recipe</h2>
+            <h2 class="pagetitle">New Recipe</h2>
             <div class="form">
-                Add your recipe:
-                <input class="title">
-                <textarea class="ingredients"></textarea>
-                <textarea class="instruction"></textarea>
+                <label>
+                    Title
+                    <input type="text" class="title">
+                </label><br>
+                <label>
+                    Ingredients
+                    <textarea class="ingredients"></textarea>
+                </label><br>
+                <label>
+                    Instruction
+                    <textarea class="instruction"></textarea>
+                </label><br>
                 <button class="submit" type="button">Submit</button>
             </div>
-            <div class="status operationstatus"></div>
-            <button type="button" class="tohomebutton">Return To Home</button>
         </div>
+        <button type="button" class="tohomebutton hidden">Return To Home</button>
+        <div class="status operationstatus"></div>
     </div>
-    <script src="ranking.js"></script>
+    <script src="recipe.js"></script>
 </body>
 
 </html>

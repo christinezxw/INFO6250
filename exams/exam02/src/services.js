@@ -85,7 +85,7 @@ export const getRecipeById = function (recipeId) {
         });
 };
 
-export const getRecipe = function () {
+export const getRecipes = function () {
     return fetch(`/recipe`, {
         method: 'GET',
     })
