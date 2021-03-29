@@ -10,13 +10,13 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "textSafeToDirect": () => (/* binding */ textSafeToDirect),
-/* harmony export */   "textDirectToSafe": () => (/* binding */ textDirectToSafe)
+/* harmony export */   "unescape": () => (/* binding */ unescape),
+/* harmony export */   "escape": () => (/* binding */ escape)
 /* harmony export */ });
-var textSafeToDirect = function textSafeToDirect(text) {
+var unescape = function unescape(text) {
   return text.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
 };
-var textDirectToSafe = function textDirectToSafe(text) {
+var escape = function escape(text) {
   return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 };
 
@@ -239,6 +239,8 @@ var loginButtonEl = document.querySelector('#recipe-app .loginbutton');
 var usernameEl = document.querySelector('#recipe-app .login input'); //home
 
 var recipeListEl = document.querySelector('#recipe-app .recipes');
+var recipeListTitleEl = document.querySelector('#recipe-app .recipes-titles');
+var recipeListAuthorEl = document.querySelector('#recipe-app .recipes-authors');
 var loginredirectbuttonlEl = document.querySelector('#recipe-app .loginredirectbutton');
 var logoutbuttonEl = document.querySelector('#recipe-app .logoutbutton');
 var newrecipebuttonEl = document.querySelector('#recipe-app .newrecipebutton'); //details
@@ -331,11 +333,15 @@ function showNewRecipe() {
 function routeToHome() {
   tohomebuttonEl.addEventListener('click', function () {
     renderHome();
+    updateStatus({
+      status: operationstatusEl,
+      message: ''
+    });
   });
 }
 
 function routeToDetails() {
-  recipeListEl.addEventListener('click', function (e) {
+  recipeListTitleEl.addEventListener('click', function (e) {
     if (!e.target.classList.contains('recipe-title')) {
       return;
     }
@@ -417,27 +423,27 @@ function addLogout() {
 }
 
 function renderRecipeList(recipes) {
-  var html = Object.values(recipes).map(function (recipe) {
-    return "<li class=\"recipe\">\n        <div class=\"recipe-container\">\n          <span class=\"recipe-title\" data-recipeid=\"".concat(recipe.recipeId, "\">").concat(recipe.title, "</span>\n          <span class=\"recipe-author\">").concat(recipe.author, "</span>\n        </div>\n        </li>");
+  var htmlTitles = Object.values(recipes).map(function (recipe) {
+    return "<li class=\"recipe-title-li\">\n            <span class=\"recipe-title\" data-recipeid=\"".concat(recipe.recipeId, "\">").concat(recipe.title, "</span>\n        </li>");
   }).join("\n");
-  recipeListEl.innerHTML = html;
+  recipeListTitleEl.innerHTML = htmlTitles;
+  var htmlAuthors = Object.values(recipes).map(function (recipe) {
+    return "<li class=\"recipe-author-li\">\n            <span class=\"recipe-author\">".concat(recipe.author, "</span>\n        </li>");
+  }).join("\n");
+  recipeListAuthorEl.innerHTML = htmlAuthors;
 }
 
 function renderRecipeDetail(recipe) {
-  var html = "\n    <h4>title</h4>\n    <span class=\"recipe-title\">".concat((0,_helpers__WEBPACK_IMPORTED_MODULE_1__.textSafeToDirect)(recipe.title), "</span><br>\n    <h4>author</h4>\n    <span class=\"recipe-author\">").concat((0,_helpers__WEBPACK_IMPORTED_MODULE_1__.textSafeToDirect)(recipe.author), "</span><br>\n    <h4>ingredients</h4>\n    <span class=\"recipe-ingredients\">").concat((0,_helpers__WEBPACK_IMPORTED_MODULE_1__.textSafeToDirect)(recipe.ingredients), "</span><br>\n    <h4>instruction</h4>\n    <span class=\"recipe-instruction\">").concat((0,_helpers__WEBPACK_IMPORTED_MODULE_1__.textSafeToDirect)(recipe.instruction), "</span><br>\n    ");
+  var html = "\n    <div class=\"detail-attribute\">Title</div>\n    <span class=\"recipe-title\">".concat((0,_helpers__WEBPACK_IMPORTED_MODULE_1__.unescape)(recipe.title), "</span><br>\n    <div class=\"detail-attribute\">Author</div>\n    <span class=\"recipe-author\">").concat((0,_helpers__WEBPACK_IMPORTED_MODULE_1__.unescape)(recipe.author), "</span><br>\n    <div class=\"detail-attribute\">Ingredients</div>\n    <span class=\"recipe-ingredients\">").concat((0,_helpers__WEBPACK_IMPORTED_MODULE_1__.unescape)(recipe.ingredients), "</span><br>\n    <div class=\"detail-attribute\">Instruction</div>\n    <span class=\"recipe-instruction\">").concat((0,_helpers__WEBPACK_IMPORTED_MODULE_1__.unescape)(recipe.instruction), "</span><br>\n    ");
   recipeDetailsEl.innerHTML = html;
 }
 
 function addNewRecipe() {
   submitButtonEl.addEventListener('click', function () {
     (0,_services__WEBPACK_IMPORTED_MODULE_0__.checkLoginStatus)().then(function () {
-      var title = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.textDirectToSafe)(titleInputEl.value);
-      var ingredients = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.textDirectToSafe)(ingredientsInputEl.value);
-      var instruction = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.textDirectToSafe)(instructionInputEl.value);
-      console.log("after replacement");
-      console.log("title: " + title);
-      console.log("ingredients: " + ingredients);
-      console.log("instruction: " + instruction);
+      var title = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.escape)(titleInputEl.value);
+      var ingredients = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.escape)(ingredientsInputEl.value);
+      var instruction = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.escape)(instructionInputEl.value);
       (0,_services__WEBPACK_IMPORTED_MODULE_0__.postRecipe)({
         title: title,
         ingredients: ingredients,
