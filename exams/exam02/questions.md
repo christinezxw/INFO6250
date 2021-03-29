@@ -19,8 +19,8 @@ console.log(`user is named ${username}`);
 ## Q3: What does it mean to "store your state in the DOM"?  Why shouldn't you do this?
 It means to get the current app states from reading the DOM tree data rather than using variables/objects. We shouldn't do this because the screen output belongs to visual part, the way getting data from it might change as the display change.
 ## Q4: Explain the differences between a multiple-page-web application and single-page-web application.  Be sure to fully demonstrate your understanding.
-A multiple-page-web application has several HTML pages. Different URL may lead to different pages load.
-A single-page-web application has only one HTML page. Different URL updates the same page with different content with no page load.
+A multiple-page-web application has several HTML pages. Different URLs lead to different pages load.
+A single-page-web application has only one HTML page. Different URLs update the same page with different content with no page load.
 ## Q5: What is Progressive Enhancement?  What is the difference in an SPA that uses Progressive Enhancement compared to an SPA that doesn't use Progressive Enhancement?
 Progressive Enhancement is Taking a non-client-side JS web app and augmenting it with JS. 
 An SPA that doesn't use Progressive Enhancement has to have all the logic written in client-side JS. Whereas an SPA that uses Progressive Enhancement can have logic on non-client-side to do some work for it, such as form validation and autocpmplete. 
@@ -28,7 +28,7 @@ An SPA that doesn't use Progressive Enhancement has to have all the logic writte
 They are similar to each other because they don't exist as a file. A REST service response or a dynamic asset are generated until the client request for it.
 They are not similar because a dynamic asset is a file, HTML page, CSS, JS, images or media, used by client-side browser. However a REST service can return HTML fragments, text, JSON, XML, YAML, etc., used by frontend and/or backend. 
 ## Q7: Give an example of a piece of information you should not store in a cookie, and why you should not store it that way.
-We shouldn't store any sensitive information which should remain secure in cookie. Because cookie is just plain text field that anyone can read and write.
+We shouldn't store any sensitive information which should remain secure in cookie, such as credit card info, password. Because cookie is just plain text field that anyone can read and write.
 ## Q8: Explain why it is useful to separate a function that fetches data from what you do with that data
 A seperated function that only responsible for fetching data can be reused for different purposes, it doesn't change if the HTML changes. Caller can decide how to react to the fetched data, which has nothing todo with the fetch call function itself. This is seperation of concerns. Also others can review the code more efficiently.
 ## Q9: Explain why try/catch is useless when dealing with asynchronous errors (assume you aren't using async/await)
