@@ -24,6 +24,8 @@ const loginButtonEl = document.querySelector('#recipe-app .loginbutton');
 const usernameEl = document.querySelector('#recipe-app .login input');
 //home
 const recipeListEl = document.querySelector('#recipe-app .recipes');
+const recipeListTitleEl = document.querySelector('#recipe-app .recipes-titles');
+const recipeListAuthorEl = document.querySelector('#recipe-app .recipes-authors');
 const loginredirectbuttonlEl = document.querySelector('#recipe-app .loginredirectbutton');
 const logoutbuttonEl = document.querySelector('#recipe-app .logoutbutton');
 const newrecipebuttonEl = document.querySelector('#recipe-app .newrecipebutton');
@@ -113,11 +115,12 @@ function showNewRecipe() {
 function routeToHome() {
     tohomebuttonEl.addEventListener('click', () => {
         renderHome();
+        updateStatus({ status: operationstatusEl, message: '' });
     });
 }
 
 function routeToDetails() {
-    recipeListEl.addEventListener('click', (e) => {
+    recipeListTitleEl.addEventListener('click', (e) => {
         if (!e.target.classList.contains('recipe-title')) {
             return;
         }
@@ -189,26 +192,30 @@ function addLogout() {
 }
 
 function renderRecipeList(recipes) {
-    const html = Object.values(recipes).map(recipe => {
-        return `<li class="recipe">
-        <div class="recipe-container">
-          <span class="recipe-title" data-recipeid="${recipe.recipeId}">${recipe.title}</span>
-          <span class="recipe-author">${recipe.author}</span>
-        </div>
+    const htmlTitles = Object.values(recipes).map(recipe => {
+        return `<li class="recipe-title-li">
+            <span class="recipe-title" data-recipeid="${recipe.recipeId}">${recipe.title}</span>
         </li>`;
     }).join("\n");
-    recipeListEl.innerHTML = html;
+    recipeListTitleEl.innerHTML = htmlTitles;
+
+    const htmlAuthors = Object.values(recipes).map(recipe => {
+        return `<li class="recipe-author-li">
+            <span class="recipe-author">${recipe.author}</span>
+        </li>`;
+    }).join("\n");
+    recipeListAuthorEl.innerHTML = htmlAuthors;
 }
 
 function renderRecipeDetail(recipe) {
     const html = `
-    <h4>title</h4>
+    <div class="detail-attribute">Title</div>
     <span class="recipe-title">${unescape(recipe.title)}</span><br>
-    <h4>author</h4>
+    <div class="detail-attribute">Author</div>
     <span class="recipe-author">${unescape(recipe.author)}</span><br>
-    <h4>ingredients</h4>
+    <div class="detail-attribute">Ingredients</div>
     <span class="recipe-ingredients">${unescape(recipe.ingredients)}</span><br>
-    <h4>instruction</h4>
+    <div class="detail-attribute">Instruction</div>
     <span class="recipe-instruction">${unescape(recipe.instruction)}</span><br>
     `;
     recipeDetailsEl.innerHTML = html;
