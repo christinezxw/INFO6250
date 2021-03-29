@@ -38,7 +38,6 @@ const addRecipe = function ({ sid, title, ingredients, instruction }) {
     const uuidv4 = require('uuid').v4;
     const recipeId = uuidv4();
     const { username } = sessionData[sid];
-    //TODO: clean special chars
     const newRecipe = {
         recipeId: recipeId,
         author: username,
