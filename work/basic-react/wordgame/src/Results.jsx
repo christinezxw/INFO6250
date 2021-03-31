@@ -4,21 +4,30 @@ const target = "RECAT";
 
 function Results({ guessWord }) {
     let result = '';
+    let resultClass = '';
     if (!guessWord) {
-        result = 'Waiting for input...';
+        result = 'Waiting for your guess...';
+        resultClass = "waiting";
     } else if (!isValidWord(guessWord)) {
-        result = `${guessWord} contains disallowed characters!`;
+        result = `contains disallowed characters!`;
+        resultClass = "invalid";
     } else if (guessWord.toLowerCase() === target.toLowerCase()) {
-        result = `${guessWord} is the secret word!`;
+        result = `is the secret word!`;
+        resultClass = "win";
     } else if (!hasSameLength(guessWord, target)) {
-        result = `${guessWord} is not a valid word.`;
+        result = `is not a valid word.`;
+        resultClass = "invalid";
     } else {
         const matches = countMatches(guessWord, target);
-        result = `${guessWord} has ${matches} letters match. Keep trying!`;
+        result = `has ${matches} letters match. Keep trying!`;
+        resultClass = "match";
     }
     return (
-        <div>
-            <p>{result}</p>
+        <div className="result">
+            <div className={resultClass}>
+                <span className="guess-word">{guessWord}</span>
+                {result}
+            </div>
         </div>
     );
 };

@@ -6,7 +6,7 @@ import Results from './Results';
 function App() {
   const [guessWord, setGuessWord] = useState();
   return (
-    <div className="App">
+    <div className="app">
       <Results guessWord={guessWord} />
       <Play setGuessWord={setGuessWord} />
     </div>
