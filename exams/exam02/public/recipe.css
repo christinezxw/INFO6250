@@ -1,0 +1,84 @@
+body {
+    font-family: sans-serif;
+}
+
+#recipe-app .hidden {
+    display: none;
+}
+
+.recipescontainer {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.recipescontainer li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.recipescontainer li:nth-child(odd) {
+    background-color: #81b5ae;
+}
+
+.recipescontainer li:nth-child(even) {
+    background-color: #41B3A3;
+}
+
+.recipe-title-li {
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.recipes-titles {
+    list-style-type: none;
+    margin: 0px 0px 0px;
+    padding-left: 0px;
+}
+
+.recipes-authors {
+    list-style-type: none;
+    margin: 0px 0px 0px;
+    padding-left: 0px;
+}
+
+.status {
+    background-color: #e27c60cf;
+    padding: 5px 5px 5px;
+}
+
+button {
+    width: 100%;
+    border: none;
+    background-color: #e8a77c90;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.recipescontainer {
+    background-color: #41B3A3;
+    color: white;
+}
+
+.recipedetailscontainer {
+    background-color: #41B3A3;
+    color: white;
+    padding: 5px 5px 5px;
+}
+
+.newrecipeform {
+    background-color: #FBEEC1;
+    padding: 5px 5px 5px;
+}
+
+.detail-attribute {
+    background-color: #09b19b;
+    color: white;
+    padding: 5px 5px 5px;
+    font-size: larger;
+}
+
+h4 {
+    text-align: center;
+}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="recipe.css" />
+</head>
+
+<body>
+    <div id="recipe-app">
+        <div class="status loginstatus"></div>
+        <div class="login hidden">
+            <h2 class="pagetitle">Login</h2>
+            <label>Username: <input type="text"></label>
+            <button type="button" class="loginbutton">Login</button>
+        </div>
+        <div class="home hidden">
+            <h2 class="pagetitle">Home</h2>
+            <button type="button" class="loginredirectbutton hidden">Login</button>
+            <button type="button" class="logoutbutton hidden">Logout</button>
+            <div class="recipescontainer">
+                <div class="recipescontainer-titles">
+                    <h4>Title</h4>
+                    <ul class="recipes-titles"></ul>
+                </div>
+                <div class="recipescontainer-authors">
+                    <h4>Author</h4>
+                    <ul class="recipes-authors"></ul>
+                </div>
+            </div>
+            <button type="button" class="newrecipebutton hidden">Add New Recipe</button>
+        </div>
+        <div class="details hidden">
+            <h2 class="pagetitle">Details</h2>
+            <div class="recipedetailscontainer"></div>
+        </div>
+        <div class="newrecipe hidden">
+            <h2 class="pagetitle">New Recipe</h2>
+            <div class="newrecipeform">
+                <label>
+                    Title:<br>
+                    <input type="text" class="title">
+                </label><br>
+                <label>
+                    Ingredients:<br>
+                    <textarea class="ingredients"></textarea>
+                </label><br>
+                <label>
+                    Instruction:<br>
+                    <textarea class="instruction"></textarea>
+                </label><br>
+                <button class="submit" type="button">Submit</button>
+            </div>
+        </div>
+        <button type="button" class="tohomebutton hidden">Return To Home</button>
+        <div class="status operationstatus"></div>
+    </div>
+    <script src="recipe.js"></script>
+</body>
+
+</html>
