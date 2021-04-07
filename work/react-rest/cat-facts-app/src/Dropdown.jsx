@@ -4,9 +4,9 @@ const Dropdown = function ({ updatePageSize }) {
         updatePageSize({ size: value });
     }
     return (
-        <div>
-            <div>Facts per page:</div>
-            <select onChange={handleChange}>
+        <div className="dropdown-container">
+            <label>Facts per page: </label>
+            <select onChange={handleChange} className="dropdown">
                 <option value="5" select="selected">5</option>
                 <option value="10">10</option>
             </select>

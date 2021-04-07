@@ -11,24 +11,23 @@ const ShowFacts = function ({ factsState, updateFactsStart }) {
         <li key={index}>{fact}</li>
     );
     return (
-        <div>
+        <div className="facts">
             <div className="message">Showing facts {start} - {end}.</div>
+            <div className="nav-button-container">
+                <button className="nav-button"
+                    onClick={() => updateFactsStart({ start: prevStart })}
+                    disabled={start > 1 ? false : true}
+                >&lt;&lt;prev&lt;&lt;</button>
+                <button className="nav-button"
+                    onClick={() => updateFactsStart({ start: nextStart })}
+                    disabled={nextStart <= maxLength ? false : true}
+                >&gt;&gt;next&gt;&gt;</button>
+            </div>
             <div className="facts-list-container">
                 <ul className="facts-list">
                     {listItems}
                 </ul>
             </div>
-            <div className="nav-button-container">
-                <button className="nav-button"
-                    onClick={() => updateFactsStart({ start: prevStart })}
-                    disabled={start > 1 ? false : true}
-                >prev</button>
-                <button className="nav-button"
-                    onClick={() => updateFactsStart({ start: nextStart })}
-                    disabled={nextStart <= maxLength ? false : true}
-                >next</button>
-            </div>
-
         </div>
     );
 };

@@ -1,14 +1,21 @@
 import spinner from './spinner.svg';
 
 const LoadContent = function ({ factsState, fetchFacts }) {
+    let content = null;
     if (factsState.hasFact) {
-        return null;
+        return content;
     }
+
     if (factsState.isLoading) {
-        return <img src={spinner} className="spinner" alt="spinner" />;
+        content = <img src={spinner} className="spinner" alt="spinner" />;
     } else {
-        return <button onClick={() => { fetchFacts() }}>Load Facts</button>;
+        content = <button onClick={() => { fetchFacts() }}>Load Facts</button>;
     }
+    return (
+        <div className="load-content">
+            {content}
+        </div>
+    );
 };
 
 export default LoadContent;

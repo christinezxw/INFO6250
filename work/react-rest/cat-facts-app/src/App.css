@@ -1,9 +1,10 @@
 .App {
   text-align: center;
+  font-family: sans-serif;
 }
 
 .spinner {
-  height: 4vmin;
+  height: 23px;
   pointer-events: none;
 }
 
@@ -20,4 +21,60 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.facts-list {
+  text-align: left;
+  border: 1px solid black;
+  padding-left: 0px;
+  margin: 0px 0px 0px;
+}
+
+.facts-list li {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  list-style-position: inside;
+}
+
+.facts-list li:nth-child(odd) {
+  background-color: blanchedalmond;
+}
+
+.facts-list li:nth-child(even) {
+  background-color: rgb(245, 207, 150);
+}
+
+.message {
+  background-color: #553D67;
+  padding: 5px 5px 5px;
+  color: white;
+}
+
+.load-content {
+  height: 25px;
+}
+
+.load-content button {
+  width: 100%;
+  border-radius: 5px;
+  margin: 2px 2px 2px;
+}
+
+.nav-button {
+  width: 40%;
+  border-radius: 5px;
+  margin: 2px 2px 2px;
+}
+
+.dropdown-container {
+  padding: 5px 5px 5px;
+  background-color: #553d675d;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.dropdown {
+  border: none;
 }
