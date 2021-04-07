@@ -3,6 +3,8 @@ const app = express();
 const PORT = 5000;
 const facts = require('./src/facts');
 
+app.use(express.static('./build'));
+
 app.get('/facts', (req, res) => {
     setTimeout(() => { res.send(facts); }, 3000);
 });
