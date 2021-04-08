@@ -7,7 +7,11 @@ const LoadContent = function ({ factsState, fetchFacts }) {
     }
 
     if (factsState.isLoading) {
-        content = <img src={spinner} className="spinner" alt="spinner" />;
+        content =
+            <div className="loading">
+                <div>Loading...</div>
+                <img src={spinner} className="spinner" alt="spinner" />
+            </div>;
     } else {
         content = <button onClick={() => { fetchFacts() }}>Load Facts</button>;
     }
