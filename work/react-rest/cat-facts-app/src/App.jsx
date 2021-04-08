@@ -4,9 +4,11 @@ import { fetchFactsService } from "./services";
 import ShowFacts from "./ShowFacts";
 import Dropdown from "./Dropdown";
 import LoadContent from "./LoadContent";
+import Message from "./Message";
 
 function App() {
   const [factsState, setFactsState] = useState({ hasFact: false, isLoading: false, factsNumber: 0 });
+  const [messageState, setMessageState] = useState(`0 facts loaded.`);
 
   const fetchFacts = function () {
     setFactsState({
@@ -23,13 +25,15 @@ function App() {
           start: 1,
           pageSize: 5
         });
+        setMessageState(`${facts.length} facts loaded.`);
       })
-      .catch(() => {
+      .catch((error) => {
         setFactsState({
           hasFact: false,
           isLoading: false,
           factsNumber: 0
         });
+        setMessageState(error.error);
       });
   };
 
@@ -49,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="message">{factsState.factsNumber} facts loaded.</div>
+      <Message message={messageState}></Message>
       <LoadContent factsState={factsState} fetchFacts={fetchFacts}></LoadContent>
       <Dropdown updatePageSize={updatePageSize}></Dropdown>
       <ShowFacts factsState={factsState} updateFactsStart={updateFactsStart}></ShowFacts>
