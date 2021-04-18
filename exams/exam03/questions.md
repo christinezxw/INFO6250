@@ -167,17 +167,17 @@ Beneficial:
 ## Q13: How many times would the below code render (if there are no changes from outside this code), and what is the rendered output for each of those times, and what triggered (caused) the render?  Assume something DOES cause this to be rendered at least once.
 ``` JS
 import { useState } from 'react';
-
-function Demo() { 
+function Demo() {
   const [count, setCount] = useState(0);
-  setCount(1);
+  if (!count) {
+    setCount(1);
+  }
   return (
     <div>{count}</div>
   );
 }
 ```
-Potentially infinite, but error shows up so nothing on the page.
-The immediately calling of the 'setCount' function will force React re-invoke the funtion component and so does the re-render. 
+The code renders twice. The first render happens when count is initialized with value 0 and the second render happens when `count === 0` so `!count === true` and then count is set to value 1.
 
 ## Q14: What happens with the below code when rendered and why?
 ``` JS
@@ -243,7 +243,7 @@ app.get('/ranking', express.json(), (req, res) => {
 URLs in our browser-side fetch code would be the absolute path of that service. For example, if front-end and back-end have the same origin, we can just fetch "/sample", but if the service is on another origin, let's say "http://hahaha/sample", then we should fetch "http://hahaha/sample"
 
 ## Q17: In our projects we had our services on the same server as our HTML/JS/CSS.  What would be different about the responses from our server-side code if our services were on a different server? (in production, not in development)
-If front-end and back-end have the same origin, nothing special on the response, but if the service is on another origin, server-side code should send CORS header in the response, to let the browser know that this request is allowed.
+If front-end and back-end have the same origin, nothing special on the response, but if the service is on another origin, server-side code should send CORS header in the response, to let the browser know that this request is allowed. If no CORS header set up, then the fetch will fail, forbidened by the browser.
 
 ## Q18: If a browser navigates to `http://localhost:3000/page/start` on an express server set up in our conventional way with the below routes, list the web request(s)/response(s) involved, and what the user will see.  (Hint: If you are uncertain, you can set up and try this code!)
 
