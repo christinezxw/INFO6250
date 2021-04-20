@@ -39,7 +39,9 @@ import { useState } from 'react';
 
 function Demo() { 
   const [count, setCount] = useState(0);
-  setCount(1);
+  if (!count) { 
+    setCount(1);
+  }
   return (
     <div>{count}</div>
   );
