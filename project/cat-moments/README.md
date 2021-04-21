@@ -7,5 +7,7 @@ User will see the details of a post when they click on the 'view' button next to
 User is able to post their own moment on post-content page, including a title, some content, and a link to image or other media content on the internet.
 User is able to view their own posts through my-page, and delete any of their posts.
 
-SVG Source:
+Image Source:
 https://iconmonstr.com
+https://pngtree.com
+https://www.svgbackgrounds.com
