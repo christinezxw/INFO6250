@@ -1,15 +1,39 @@
 const sessionData = {};
 const momentsData = {
-    "default": {
-        momentId: "default",
-        author: "default",
-        title: "default",
-        content: "default",
-        link: "default",
-        likes: 0
+    "default1": {
+        momentId: "default1",
+        author: "MimiGingerGirl",
+        title: "Warm sleeping...",
+        content: "Such a good weather! She rolls on her back and whitty furry belly up...",
+        link: "https://images.app.goo.gl/K8RdvPhhNFnjVNyA7",
+        likes: 10
+    },
+    "default2": {
+        momentId: "default2",
+        author: "MimiGingerGirl",
+        title: "Birds and rabbits in backyard",
+        content: "It's so funny that she'll make those sound mocking birds singing when she sees them! And chases the rabbits in the backyard from the house and hits the wall...><",
+        link: "https://images.app.goo.gl/FTGAJiqgB3LX12aa6",
+        likes: 7
+    },
+    "default3": {
+        momentId: "default3",
+        author: "CLJ",
+        title: "Fitness day",
+        content: "She's been jumpping up to beat the poster on the wall for an hour!!! Please don't beat me at night... Too much muscle!!",
+        link: "https://images.app.goo.gl/KWmP2FNRG14T1q8L6",
+        likes: 26
     }
 };
-const userMomentsData = {};
+const userMomentsData = {
+    "CLJ": {
+        "default3": "default3"
+    },
+    "MimiGingerGirl": {
+        "default1": "default1",
+        "default2": "default2"
+    }
+};
 
 const uuid = require('uuid').v4;
 
@@ -34,8 +58,10 @@ const createSession = function (username) {
     sessionData[sid] = {
         username: username
     };
-    userMomentsData[username] = {
-    };
+    if (!userMomentsData[username]) {
+        userMomentsData[username] = {
+        };
+    }
     return sid;
 };
 
