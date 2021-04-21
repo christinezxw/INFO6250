@@ -1,9 +1,10 @@
 import { getMomentById, deleteMomentById, updateLikes } from './services'
 import { useState, useEffect, useContext } from 'react';
 import Loading from './Loading'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import UserContext from './UserContext'
 import favorite from './favorite.svg';
+import link from './link.svg';
 
 const DetailContent = function ({ momentId }) {
     const [momentState, setMomentState] = useState({ isLoading: true });
@@ -106,20 +107,22 @@ const DetailContent = function ({ momentId }) {
         return <Redirect to="/mypage" />;
     }
     return (
-        <div>
-            <div>Title</div>
-            <span >{momentState.moment.title}</span>
-            <div >Author</div>
-            <span >{momentState.moment.author}</span>
-            <div >content</div>
-            <span >{momentState.moment.content}</span>
-            <div >link</div>
-            <span >{momentState.moment.link}</span>
-            <div >likes</div>
-            <img src={favorite} className="favorite" alt="favorite" onClick={() => onLike()} />
-            <span >{momentState.moment.likes}</span>
+        <div className="detail-container">
+            <div className="title">{momentState.moment.title}</div>
+            <div className="author">by: {momentState.moment.author}</div>
+            <hr />
+            <div className="content">{momentState.moment.content}</div>
+            <div className="link">
+                <a href={momentState.moment.link} target="_blank" rel="noopener noreferrer" >{momentState.moment.link}</a>
+                <img src={link} alt="link" />
+            </div>
+            <hr />
+            <div className="likes-container">
+                <img src={favorite} className="favorite" alt="favorite" onClick={() => onLike()} />
+                <div >{momentState.moment.likes}</div>
+            </div>
             {enableDeleteButton ?
-                <button type="button" onClick={() => { onDelete(momentState.moment.momentId) }}>Delete</button> : null}
+                <button className="submit" type="button" onClick={() => { onDelete(momentState.moment.momentId) }}>Delete</button> : null}
         </div>
     );
 };

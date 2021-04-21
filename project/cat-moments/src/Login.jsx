@@ -29,11 +29,15 @@ const Login = function ({ onLogin }) {
     };
 
     return (
-        <div>
-            <p>Welcome to CatMoments!</p>
-            <p>Please login to view and post moments...</p>
-            <input disabled={isPending} onChange={onChange} value={username} placeholder="Enter Your Username" />
-            <button onClick={login} disabled={isDisabled || isPending} >{isPending ? "..." : "Login"}</button>
+        <div className="login">
+            <div className="welcome">
+                <p>Welcome to CatMoments!</p>
+                <p>Please login to view and post moments...</p>
+            </div>
+            <div className="login-form">
+                <input className="input" disabled={isPending} onChange={onChange} value={username} placeholder="Enter Your Username" />
+                <button className="submit-button" onClick={login} disabled={isDisabled || isPending} >{isPending ? "..." : "Login"}</button>
+            </div>
         </div>
     );
 };

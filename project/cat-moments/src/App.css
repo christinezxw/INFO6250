@@ -1,38 +1,130 @@
-.App {
+.app {
+  font-family: sans-serif;
+  background: url(Radiant-Gradient.svg);
+  background-size: cover;
+  background-position: center;
+}
+
+html, body, #root, .app {
+  height: 100%;
+}
+
+.login {
   text-align: center;
+  padding-top: 50%;
+  padding-bottom: 50%;
+  background: url(cat-back.png);
+  background-position: top;
+  background-size: contain;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.welcome {
+  padding: 10px 10px 10px;
+  background-color: rgba(255, 255, 255, 0.467);
+  font-weight: bold;
+  font-size: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-container {
+  background-color: #EEEEBB;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5px 5px 5px;
+  margin: 0px 0px 0px;
+  list-style-image: url('paw.svg');
+}
+
+.nav li {
+  list-style-position: inside;
+}
+
+.likes-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 5px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+}
+
+.moments {
+  list-style-image: url('cat-avatar.svg');
+  padding: 5px 5px 5px;
+  margin: 0px 0px 0px;
+}
+
+.moments li {
+  list-style-position: inside;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px 5px 5px;
+  margin: 5px 0px 5px;
+}
+
+.moment-li-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-container {
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  margin: 5px 5px 5px;
+  padding: 5px 5px 5px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.author {
+  font-style: italic;
+}
+
+.link {
+  text-decoration: underline;
+  color: blue;
+}
+
+.link:hover {
+  cursor: pointer;
+}
+
+.post {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 5px 5px 5px;
+  padding: 5px 5px 5px;
+}
+
+.post-form * {
+  margin: 5px 0px 5px;
+}
+
+.label {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.input {
+  border: 1px solid gray;
+}
+
+.status {
+  background-color: indianred;
   color: white;
+  padding: 5px 5px 5px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+img {
+  height: 20px;
 }

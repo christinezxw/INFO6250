@@ -14,13 +14,21 @@ const UserContent = function () {
         })
         getMomentIdsByUsername()
             .then(momentIds => {
+                if (momentIds
+                    && Object.keys(momentIds).length === 0 && momentIds.constructor === Object) {
+                    setUserState({
+                        ...userState,
+                        status: 'hmmm... You have no moment yet, post some!'
+                    });
+                } else {
+                    setUserState({
+                        ...userState,
+                        status: ''
+                    });
+                }
                 setMomentIdsState({
                     momentIds: momentIds,
                     isLoading: false
-                });
-                setUserState({
-                    ...userState,
-                    status: ''
                 });
             })
             .catch((err) => {
@@ -33,8 +41,10 @@ const UserContent = function () {
     }, []);
 
     if (!momentIdsState) {
+
         return null;
     }
+
     if (momentIdsState.isLoading) {
         return (
             <Loading />

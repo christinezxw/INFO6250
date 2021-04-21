@@ -50,7 +50,7 @@ const HomeContent = function () {
         );
     }
     return (
-        <div>
+        <div className="home">
             <MomentsList moments={momentsState.moments} />
         </div>
     );

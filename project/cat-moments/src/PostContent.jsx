@@ -48,22 +48,25 @@ const PostContent = function () {
         return <Redirect to="/" />;
     }
     return (
-        <div>
-            Post Your Moment
-            <div >
-                <label>
-                    Title:
-                    <input type="text" onChange={updateTitle} value={formState.title} />
+        <div className="post">
+            <p>Share your cat's special moment with us!</p>
+            <div className="post-form">
+                <label className="label">
+                    Title:<br/>
+                    <input className="input" type="text" onChange={updateTitle} value={formState.title} />
                 </label>
-                <label>
-                    Content:
-                    <textarea onChange={updateContent} value={formState.content} ></textarea>
+                <br/>
+                <label className="label">
+                    Content:<br/>
+                    <textarea className="input" onChange={updateContent} value={formState.content} ></textarea>
                 </label>
-                <label>
-                    Link:
-                    <input type="text" onChange={updateLink} value={formState.link} />
+                <br/>
+                <label className="label">
+                    Link:<br/>
+                    <input className="input" type="text" onChange={updateLink} value={formState.link} />
                 </label>
-                <button type="button" onClick={() => { onSubmit() }}>Submit</button>
+                <br/>
+                <button className="submit-button" type="button" onClick={() => { onSubmit() }}>Submit</button>
                 {status && <div class="status">{status}</div>}
             </div>
         </div>

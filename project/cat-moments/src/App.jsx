@@ -75,8 +75,8 @@ function App() {
   return (
     <UserContext.Provider value={[userState, setUserState]}>
       <div className="app">
-        {userState.status && <div class="status">{userState.status}</div>}
         <Navigation onLogout={logout} />
+        {userState.status && <div className="status">{userState.status}</div>}
         {content}
       </div>
     </UserContext.Provider>
