@@ -1,13 +1,19 @@
-const Navigation = function ({ user, onLogout }) {
-  if (!user.isLoggedIn) {
+import { useContext } from 'react';
+import UserContext from './UserContext'
+
+const Navigation = function ({ onLogout }) {
+  const [userState] = useContext(UserContext);
+  if (!userState.isLoggedIn) {
     return null;
   }
-
   return (
     <div>
-      <div>Hi, {user.username}!</div>
+      <div>Hi, {userState.username}!</div>
       <nav>
         <ul className="nav">
+          <li className="homepage"><a href="/">Home</a></li>
+          <li className="mypage"><a href={"/mypage"}>MyPage</a></li>
+          <li className="postpage"><a href="/post">PostYourMoment</a></li>
           <li className="logout"><a href="#logout" onClick={onLogout}>Logout</a></li>
         </ul>
       </nav>

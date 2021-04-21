@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { postMoment } from './services'
-import  { Redirect } from 'react-router-dom'
-
+import { Redirect } from 'react-router-dom'
 
 const PostContent = function () {
     const [status, setStatus] = useState('');
@@ -50,7 +49,7 @@ const PostContent = function () {
     }
     return (
         <div>
-            Post page
+            Post Your Moment
             <div >
                 <label>
                     Title:
@@ -65,9 +64,8 @@ const PostContent = function () {
                     <input type="text" onChange={updateLink} value={formState.link} />
                 </label>
                 <button type="button" onClick={() => { onSubmit() }}>Submit</button>
-                { status && <div class="status">{status}</div>}
+                {status && <div class="status">{status}</div>}
             </div>
-            <p><a href="/">back to home</a></p>
         </div>
     );
 };

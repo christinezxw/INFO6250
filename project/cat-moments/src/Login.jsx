@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { createSession } from './services';
+import UserContext from './UserContext'
 
 const Login = function ({ onLogin }) {
     const [username, setUsername] = useState('');
     const [isDisabled, setIsDisabled] = useState(true);
     const [isPending, setIsPending] = useState(false);
-    const [status, setStatus] = useState('');
-
+    const [userState, setUserState] = useContext(UserContext);
     const onChange = (e) => {
         setUsername(e.target.value);
         setIsDisabled(!e.target.value);
@@ -15,26 +15,24 @@ const Login = function ({ onLogin }) {
     const login = () => {
         setIsPending(true);
         createSession({ username })
-            .then(userinfo => {
-                setStatus('');
+            .then(() => {
                 setIsPending(false);
                 onLogin({ username });
             })
             .catch(err => {
-                setStatus(err.error);// TODO: convert to friendly message
+                setUserState({
+                    ...userState,
+                    status: err.error
+                });
                 setIsPending(false);
             });
     };
 
     return (
         <div>
-            { status && <div class="status">{status}</div>}
             <p>Welcome to CatMoments!</p>
             <p>Please login to view and post moments...</p>
-            <label>
-                Username:
-                <input disabled={isPending} onChange={onChange} value={username} />
-            </label>
+            <input disabled={isPending} onChange={onChange} value={username} placeholder="Enter Your Username" />
             <button onClick={login} disabled={isDisabled || isPending} >{isPending ? "..." : "Login"}</button>
         </div>
     );

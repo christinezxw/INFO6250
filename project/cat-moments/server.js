@@ -9,7 +9,7 @@ app.use(express.static('./build'));
 app.use(cookieParser());
 
 app.get('/moments', (req, res) => {
-    setTimeout(() => { res.send(sessions.momentsData); }, 2000);
+    setTimeout(() => { res.send(sessions.momentsData); }, 1000);
 });
 
 app.get('/moments/:momentId', express.json(), (req, res) => {
@@ -19,8 +19,20 @@ app.get('/moments/:momentId', express.json(), (req, res) => {
     } else if (!sessions.momentsData[momentId]) {
         res.status(404).json({ error: `unknown-momentId: ${momentId}` });
     } else {
-        setTimeout(() => { res.send(sessions.momentsData[momentId]); }, 2000);
+        setTimeout(() => { res.send(sessions.momentsData[momentId]); }, 1000);
     }
+});
+
+app.get('/userMomentIds', express.json(), (req, res) => {
+    const sid = req.cookies.sid;
+    if (!sid) {
+        res.status(401).json({ error: 'login-required' });
+        return;
+    } else if (!sessions.isValidSession(sid)) {
+        res.status(403).json({ error: 'login-invalid' });
+        return;
+    }
+    setTimeout(() => { res.send(sessions.userMomentsData[sessions.sessionData[sid].username]); }, 1000);
 });
 
 app.delete('/moments/:momentId', express.json(), (req, res) => {
@@ -67,6 +79,19 @@ app.post('/moments', express.json(), (req, res) => {
     res.status(200).json({ momentId: momentId });
 });
 
+app.patch('/moments/:momentId', express.json(), (req, res) => {
+    const momentId = req.params.momentId;
+    const likes = req.body.likes;
+    if (!momentId) {
+        res.status(400).json({ error: `momentId-missing` });
+    } else if (!likes) {
+        res.status(400).json({ error: `likes-missing` });
+    } else {
+        sessions.momentsData[momentId].likes = likes;
+        res.json(sessions.momentsData[momentId]);
+    }
+});
+
 app.get('/session', (req, res) => {
     const sid = req.cookies.sid;
     if (!sid) {
@@ -91,7 +116,7 @@ app.post('/session', express.json(), (req, res) => {
     }
     const sid = sessions.createSession(username);
     res.cookie('sid', sid);
-    res.status(200).json({});
+    setTimeout(() => { res.send({}); }, 1000);
 });
 
 app.delete('/session', (req, res) => {

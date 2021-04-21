@@ -5,6 +5,7 @@ import Navigation from './Navigation'
 import Login from './Login'
 import MainContent from './MainContent'
 import Loading from './Loading'
+import UserContext from './UserContext';
 
 function App() {
   const [userState, setUserState] = useState({ isLoggedIn: false, isPending: true });
@@ -31,6 +32,7 @@ function App() {
       isLoggedIn: true,
       isPending: false,
       username,
+      status: ''
     });
   };
 
@@ -71,10 +73,13 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <Navigation user={userState} onLogout={logout} />
-      {content}
-    </div>
+    <UserContext.Provider value={[userState, setUserState]}>
+      <div className="app">
+        {userState.status && <div class="status">{userState.status}</div>}
+        <Navigation onLogout={logout} />
+        {content}
+      </div>
+    </UserContext.Provider>
   );
 }
 

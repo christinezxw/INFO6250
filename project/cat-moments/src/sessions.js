@@ -5,7 +5,8 @@ const momentsData = {
         author: "default",
         title: "default",
         content: "default",
-        link: "default"
+        link: "default",
+        likes: 0
     }
 };
 const userMomentsData = {};
@@ -33,6 +34,8 @@ const createSession = function (username) {
     sessionData[sid] = {
         username: username
     };
+    userMomentsData[username] = {
+    };
     return sid;
 };
 
@@ -45,7 +48,8 @@ const addMoment = function ({ sid, title, content, link }) {
         author: username,
         title: title,
         content: content,
-        link: link
+        link: link,
+        likes: 0
     };
     momentsData[momentId] = newMoment;
     userMomentsData[username][momentId] = momentId;

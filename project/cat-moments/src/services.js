@@ -41,6 +41,26 @@ export const endSession = () => {
         });
 };
 
+export const updateLikes = function ({ momentId, likes }) {
+    return fetch(`/moments/${momentId}`, {
+        method: 'PATCH',
+        headers: new Headers({
+            'content-type': 'application/json'
+        }),
+        body: JSON.stringify({
+            likes: likes
+        })
+    })
+        .catch(() => {
+            return Promise.reject({ error: 'network-error' });
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            return response.json().then(err => Promise.reject(err));
+        });
+};
 
 export const postMoment = function ({ title, content, link }) {
     return fetch('/moments', {
@@ -67,6 +87,21 @@ export const postMoment = function ({ title, content, link }) {
 
 export const getMomentById = function (momentId) {
     return fetch(`/moments/${momentId}`, {
+        method: 'GET',
+    })
+        .catch(() => {
+            return Promise.reject({ error: 'network-error' });
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            return response.json().then(err => Promise.reject(err));
+        });
+};
+
+export const getMomentIdsByUsername = function () {
+    return fetch(`/userMomentIds`, {
         method: 'GET',
     })
         .catch(() => {
