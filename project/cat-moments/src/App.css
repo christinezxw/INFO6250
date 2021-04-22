@@ -13,11 +13,11 @@ html, body, #root, .app {
   background: url(cat-back.png);
   background-position: top;
   background-size: cover;
-  position:relative;
+  position: relative;
   height: inherit;
 }
 
-.login-content{
+.login-content {
   text-align: center;
   position: absolute;
   top: 50%;
@@ -27,7 +27,7 @@ html, body, #root, .app {
 
 .welcome {
   padding: 10px 10px 10px;
-  background-color: rgba(255, 255, 255, 0.467);
+  background-color: rgba(255, 255, 255, 0.5);
   font-weight: bold;
   font-size: 25px;
 }
@@ -73,6 +73,7 @@ html, body, #root, .app {
   border-radius: 5px;
   padding: 5px 5px 5px;
   margin: 5px 0px 5px;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .moment-li-container {
@@ -86,6 +87,7 @@ html, body, #root, .app {
   text-align: center;
   margin: 5px 5px 5px;
   padding: 5px 5px 5px;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .title {
@@ -111,6 +113,7 @@ html, body, #root, .app {
   border-radius: 5px;
   margin: 5px 5px 5px;
   padding: 5px 5px 5px;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .post-form * {

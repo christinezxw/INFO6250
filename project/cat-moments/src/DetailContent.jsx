@@ -1,14 +1,14 @@
 import { getMomentById, deleteMomentById, updateLikes } from './services'
 import { useState, useEffect, useContext } from 'react';
 import Loading from './Loading'
-import { Redirect, Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import UserContext from './UserContext'
 import favorite from './favorite.svg';
 import link from './link.svg';
 
 const DetailContent = function ({ momentId }) {
     const [momentState, setMomentState] = useState({ isLoading: true });
-    const [postSuccessState, setPostSuccessState] = useState(false);
+    const [deleteSuccessState, setDeleteSuccessState] = useState(false);
     const [userState, setUserState] = useContext(UserContext);
     const username = userState.username
     const enableDeleteButton = momentState.moment ? (momentState.moment.author === username ? true : false) : false;
@@ -40,11 +40,11 @@ const DetailContent = function ({ momentId }) {
     const onDelete = function () {
         deleteMomentById(momentId)
             .then(() => {
-                setPostSuccessState(true);
                 setUserState({
                     ...userState,
                     status: ''
                 });
+                setDeleteSuccessState(true);
             })
             .catch((err) => {
                 setUserState({
@@ -103,7 +103,7 @@ const DetailContent = function ({ momentId }) {
             <Loading />
         );
     }
-    if (postSuccessState) {
+    if (deleteSuccessState) {
         return <Redirect to="/mypage" />;
     }
     return (

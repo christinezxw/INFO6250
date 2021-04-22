@@ -41,7 +41,6 @@ const UserContent = function () {
     }, []);
 
     if (!momentIdsState) {
-
         return null;
     }
 
