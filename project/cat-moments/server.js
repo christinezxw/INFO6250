@@ -1,5 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 const app = express();
 const PORT = 5000;
@@ -123,5 +124,13 @@ app.delete('/session', (req, res) => {
     res.clearCookie('sid');
     res.status(200).json({});
 });
+
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build/index.html'), function (err) {
+        if (err) {
+            res.status(500).send(err)
+        }
+    })
+})
 
 app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
