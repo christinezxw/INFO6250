@@ -169,7 +169,8 @@ Beneficial:
 import { useState } from 'react';
 function Demo() {
   const [count, setCount] = useState(0);
-  if (!count) {
+
+  if (!count) { 
     setCount(1);
   }
   return (
