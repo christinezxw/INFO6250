@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import likes from './likes.svg';
+import { unescape } from './helper'
 
 const MomentsList = function ({ moments }) {
     if (!moments) {
@@ -8,14 +9,14 @@ const MomentsList = function ({ moments }) {
 
     const listItems = moments.map((momentArray, index) =>
         <li key={index} className="moment-li">
-            <span>{momentArray[0].author}</span>
-            <hr/>
+            <span>{unescape(momentArray[0].author)}</span>
+            <hr />
             <div className="moment-li-container">
                 <div className="likes-container">
                     <img src={likes} className="likes" alt="likes" />
                     <div>{momentArray[0].likes}</div>
                 </div>
-                <div>{momentArray[0].title}</div>
+                <div>{unescape(momentArray[0].title)}</div>
                 <Link to={"/detail/" + momentArray[0].momentId}>View</Link>
             </div>
         </li>

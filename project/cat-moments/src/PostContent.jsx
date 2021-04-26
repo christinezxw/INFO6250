@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { postMoment } from './services'
 import { Redirect } from 'react-router-dom'
+import { escape, unescape } from './helper'
 
 const PostContent = function () {
     const [status, setStatus] = useState('');
@@ -12,15 +13,15 @@ const PostContent = function () {
     });
     const updateTitle = (e) => setFormState({
         ...formState,
-        title: e.target.value
+        title: escape(e.target.value)
     });
     const updateContent = (e) => setFormState({
         ...formState,
-        content: e.target.value
+        content: escape(e.target.value)
     });
     const updateLink = (e) => setFormState({
         ...formState,
-        link: e.target.value
+        link: escape(e.target.value)
     });
 
     const [postSuccessState, setPostSuccessState] = useState(false);
@@ -52,20 +53,20 @@ const PostContent = function () {
             <p>Share your cat's special moment with us!</p>
             <div className="post-form">
                 <label className="label">
-                    Title:<br/>
-                    <input className="input" type="text" onChange={updateTitle} value={formState.title} />
+                    Title:<br />
+                    <input className="input" type="text" onChange={updateTitle} value={unescape(formState.title)} />
                 </label>
-                <br/>
+                <br />
                 <label className="label">
-                    Content:<br/>
-                    <textarea className="input" onChange={updateContent} value={formState.content} ></textarea>
+                    Content:<br />
+                    <textarea className="input" onChange={updateContent} value={unescape(formState.content)} ></textarea>
                 </label>
-                <br/>
+                <br />
                 <label className="label">
-                    Link:<br/>
-                    <input className="input" type="text" onChange={updateLink} value={formState.link} />
+                    Link:<br />
+                    <input className="input" type="text" onChange={updateLink} value={unescape(formState.link)} />
                 </label>
-                <br/>
+                <br />
                 <button className="submit-button" type="button" onClick={() => { onSubmit() }}>Submit</button>
                 {status && <div class="status">{status}</div>}
             </div>

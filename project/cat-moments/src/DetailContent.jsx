@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom'
 import UserContext from './UserContext'
 import favorite from './favorite.svg';
 import link from './link.svg';
+import { unescape } from './helper'
 
 const DetailContent = function ({ momentId }) {
     const [momentState, setMomentState] = useState({ isLoading: true });
@@ -108,12 +109,12 @@ const DetailContent = function ({ momentId }) {
     }
     return (
         <div className="detail-container">
-            <div className="title">{momentState.moment.title}</div>
-            <div className="author">by: {momentState.moment.author}</div>
+            <div className="title">{unescape(momentState.moment.title)}</div>
+            <div className="author">by: {unescape(momentState.moment.author)}</div>
             <hr />
-            <div className="content">{momentState.moment.content}</div>
+            <div className="content">{unescape(momentState.moment.content)}</div>
             <div className="link">
-                <a href={momentState.moment.link} target="_blank" rel="noopener noreferrer" >{momentState.moment.link}</a>
+                <a href={momentState.moment.link} target="_blank" rel="noopener noreferrer" >{unescape(momentState.moment.link)}</a>
                 <img src={link} alt="link" />
             </div>
             <hr />
